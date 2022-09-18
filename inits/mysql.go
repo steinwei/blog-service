@@ -1,11 +1,11 @@
 package inits
 
 import (
-    "fmt"
+	"fmt"
 
-    "github.com/beego/beego/orm"
-    _ "github.com/go-sql-driver/mysql"
-    "github.com/spf13/viper"
+	"github.com/beego/beego/v2/client/orm"
+	_ "github.com/go-sql-driver/mysql"
+	"github.com/spf13/viper"
 )
 
 func init() {

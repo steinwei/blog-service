@@ -13,8 +13,8 @@ type PostController struct {
     beego.Controller
 }
 
-func (ctx *PostController) Get() {
-    id := ctx.Ctx.Input.Param(":id")
+func (c *PostController) Get() {
+    id := c.Ctx.Input.Param(":id")
     postId, _ := strconv.ParseUint(id, 0, 8)
     post := models.Post{Id: uint(postId)}
     o := orm.NewOrm()
@@ -23,15 +23,15 @@ func (ctx *PostController) Get() {
     })
 
     if err := o.Read(&post); err != nil {
-        ctx.Abort("404")
+        c.Abort("404")
     }
 
     comments := services.GetComment(int(postId))
-    ctx.Data["comments"] = comments
-    ctx.Data["post"] = post
-    ctx.LayoutSections = make(map[string]string)
-    ctx.LayoutSections["Comment"] = "comment.tpl"
-    ctx.LayoutSections["Scripts"] = "main.js"
-    ctx.Layout = "layout.tpl"
-    ctx.TplName = "post.tpl"
+    c.Data["comments"] = comments
+    c.Data["post"] = post
+    c.LayoutSections = make(map[string]string)
+    c.LayoutSections["Comment"] = "comment.tpl"
+    c.LayoutSections["Scripts"] = "main.js"
+    c.Layout = "layout.tpl"
+    c.TplName = "post.tpl"
 }

@@ -9,9 +9,9 @@ import (
 type CommentService struct{}
 
 type Comments struct {
-    Id        int         `json:"Id"`
-    PostId    int         `json:"postId"`
-    ParentId  int         `json:"parentId"`
+    Id        int         `json:"id"`
+    PostId    int         `json:"post_id"`
+    ParentId  int         `json:"parent_id"`
     Username  string      `json:"username"`
     Content   string      `json:"content"`
     CreatedAt string      `json:"created_at"`

@@ -12,8 +12,8 @@
   </header>
   {{range $key,$post := .post}}
       <ul>
-        <li>{{$post.title}}</li>
-        <li>{{$post.content}}</li>
+        <li>{{$post.Title}}</li>
+        <li>{{$post.Content}}</li>
         <li>views: {{$post.ViewCount}}</li>
         <li>likes: {{$post.LikeCount}}</li>
       </ul>
