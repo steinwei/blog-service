@@ -1,14 +1,15 @@
 package main
 
 import (
+	_ "blog/inits"
 	_ "blog/routers"
 
-	_ "blog/models"
-
-	beego "github.com/beego/beego/v2/server/web"
+	beego "github.com/beego/beego"
+	"github.com/beego/beego/orm"
 )
 
 func main() {
+	orm.Debug = true
+	orm.RunSyncdb("default", false, true)
 	beego.Run()
 }
-

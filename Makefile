@@ -5,4 +5,4 @@ build:
 prod:
 	make build
 test:
-	go run . --env test
+	go test .
